@@ -25,10 +25,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        enterEncounter = (EditText) findViewById(R.id.enterEncounter);
-        newEncounter = enterEncounter.getText().toString();
-
-
         listView = (ListView) findViewById(R.id.encounters);
 
         encounterList = new ArrayList<>();
@@ -38,11 +34,25 @@ public class MainActivity extends AppCompatActivity {
         encountersArrayAdapter = new ArrayAdapter<> (this, android.R.layout.simple_list_item_1, encounterList);
         listView.setAdapter(encountersArrayAdapter);
 
-//        encounterButton.setOnClickListener();
+//        encounterButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                enterEncounter = (EditText) findViewById(R.id.enterEncounter);
+//                newEncounter = enterEncounter.getText().toString();
+//
+//                encounterList.add (newEncounter);
+//                encountersArrayAdapter.notifyDataSetChanged();
+//            }
+//        });
 
     }
 
     public void addEncounter(View v) {
+
+        enterEncounter = (EditText) findViewById(R.id.enterEncounter);
+        newEncounter = enterEncounter.getText().toString();
+
         encounterList.add(newEncounter);
         encountersArrayAdapter.notifyDataSetChanged();
     }
