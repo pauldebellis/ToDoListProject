@@ -53,8 +53,11 @@ public class MainActivity extends AppCompatActivity {
         enterEncounter = (EditText) findViewById(R.id.enterEncounter);
         newEncounter = enterEncounter.getText().toString();
 
-        encounterList.add(newEncounter);
-        encountersArrayAdapter.notifyDataSetChanged();
-    }
+        if (enterEncounter.getText().toString() != "") {
+            encounterList.add(newEncounter);
+            encountersArrayAdapter.notifyDataSetChanged();
 
+            enterEncounter.setText("");
+        }
+    }
 }
