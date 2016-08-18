@@ -21,6 +21,7 @@ public class Combatant extends AppCompatActivity {
     private EditText enterCombatant;
     private String newCombatant;
     private ArrayAdapter <String> combatantArrayAdapter;
+    private ArrayList<ArrayList<String>> encounterArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +34,11 @@ public class Combatant extends AppCompatActivity {
         title = intent.getStringExtra("COMBATANT");
         titleView.setText(title);
 
+
 // COMBATANT LIST
         listView = (ListView) findViewById(R.id.combatants);
         combatantList = new ArrayList<>();
-        combatantArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, combatantList);
+        combatantArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, combatantList);
         listView.setAdapter(combatantArrayAdapter);
 
 
@@ -62,8 +64,10 @@ public class Combatant extends AppCompatActivity {
 
         if (enterCombatant.getText().toString() != "") {
             combatantList.add(newCombatant);
+            encounterArray.add(combatantList);
             combatantArrayAdapter.notifyDataSetChanged();
             enterCombatant.setText("");
+
         }
     }
 
