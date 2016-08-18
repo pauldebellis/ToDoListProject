@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         encounterList = new ArrayList<>();
         combatantList = new ArrayList<>();
 
-        encounterList.add("poop");
+//        encounterList.add("poop");
 
         encountersArrayAdapter = new ArrayAdapter<> (this, android.R.layout.simple_list_item_1, encounterList);
         listView.setAdapter(encountersArrayAdapter);
