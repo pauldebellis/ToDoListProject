@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private EditText enterEncounter;
     private String newEncounter;
-    private Button encounterButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         encounterList = new ArrayList<>();
         combatantList = new ArrayList<>();
 
-//        encounterList.add("poop");
 
         encountersArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, encounterList);
         listView.setAdapter(encountersArrayAdapter);
@@ -81,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu, menu);
     }
 
-
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
@@ -92,12 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             default:
                 return super.onContextItemSelected(item);
-
         }
-
-
-//        return super.onContextItemSelected(item);
     }
-
 }
 

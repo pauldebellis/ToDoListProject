@@ -48,6 +48,16 @@ public class Combatant extends AppCompatActivity {
         combatantArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, combatantList);
         listView.setAdapter(combatantArrayAdapter);
 
+        registerForContextMenu(listView);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
+
+
         Button combatantButton = (Button)findViewById(R.id.combatantButton);
         combatantButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,19 +65,6 @@ public class Combatant extends AppCompatActivity {
                 addCombatant(enterCombatant);
             }
         });
-
-
-
-//        MAYBE MAKE ITEMS STRIKETHROUGH ON CLICK???
-
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-//
-//            }
-//        });
-
-
     }
 
     public void addCombatant(View v) {
@@ -77,7 +74,6 @@ public class Combatant extends AppCompatActivity {
 
         if (enterCombatant.getText().toString() != "") {
             combatantList.add(newCombatant);
-//            encounterArray.add(combatantList);
             combatantArrayAdapter.notifyDataSetChanged();
             enterCombatant.setText("");
 
@@ -102,9 +98,6 @@ public class Combatant extends AppCompatActivity {
                 return true;
             default:
                 return super.onContextItemSelected(item);
-
         }
-
-
     }
 }
